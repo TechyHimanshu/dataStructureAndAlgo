@@ -1,0 +1,65 @@
+// Longest Substring with At Least K Repeating Characters
+
+const s = "ababbcaabbb";
+const k = 2
+
+let counts = new Map();
+let totalUniqChars = 0;
+let len = 0;
+for (let ch of s) {
+    if (!counts.has(ch)) {
+        totalUniqChars++;
+        counts.set(ch, 1);
+    } else {
+        let c = counts.get(ch);
+        counts.set(ch, c + 1);
+    }
+}
+for (let numUniq = 1; numUniq <= totalUniqChars; numUniq++) {
+    let i = 0, j = 0, countK = 0;
+    counts.clear();
+    while (j < s.length) {
+        if (!counts.has(s[j])) {
+            counts.set(s[j], 1);
+            if (k === 1) {
+                countK++;
+            }
+        } else {
+            let x = counts.get(s[j]);
+            counts.set(s[j], x + 1);
+            if (x + 1 === k) {
+                countK++;
+            }
+        }
+        if (counts.size <= numUniq) {
+            j++;
+        } else if (counts.size > numUniq) {
+            while (counts.size > numUniq) {
+                if (counts.has(s[i])) {
+                    let x = counts.get(s[i]);
+                    if (x === k) {
+                        countK--;
+                    }
+                    x--;
+                    if (!x) {
+                        counts.delete(s[i]);
+                    } else {
+                        counts.set(s[i], x);
+                    }
+                }
+                i++;
+            }
+            j++;
+        }
+        if (countK === counts.size && counts.size === numUniq) {
+            if (j - i > len) {
+                len = j - i;
+            }
+        }
+    }
+}
+console.log(len);
+
+
+
+// abcacda <-> adccba

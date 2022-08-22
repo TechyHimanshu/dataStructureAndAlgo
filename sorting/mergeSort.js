@@ -7,7 +7,7 @@ const conqure = (arr, startIdx, midIdx, endIdx) => {
 
     let i = startIdx;  // tracking first array
     let j = midIdx + 1; // tracking second array
-    let n = 0;  // tackig temp array
+    let n = 0;  // trackig temp array
 
     while (i <= midIdx && j <= endIdx) {
         if (arr[i] <= arr[j]) {
@@ -34,8 +34,8 @@ const conqure = (arr, startIdx, midIdx, endIdx) => {
         j++
     }
 
-    for(let i = 0, j = startIdx; i<tempArr.length; i++,j++ ){
-        arr[j] = tempArr[i];
+    for(let a = 0, b = startIdx; a<tempArr.length; a++,b++ ){
+        arr[b] = tempArr[a];
     }
 
 }

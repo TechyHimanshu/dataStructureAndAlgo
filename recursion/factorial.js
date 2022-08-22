@@ -12,15 +12,19 @@ console.log("-----------");
 
 //  fabonacci series  0,1,2,3,5,8,13
 function feb(n) {
+    let febStore = {};
     function cal(n) {
-        if (n <= 1)
-            return n;
-        return cal(n - 1) + cal(n - 2)
+        if(febStore[n]) return febStore[n];
+        if(n == 0)
+            return febStore[n] = n;    
+        if (n == 1)
+            return febStore[n] = n;
+        return febStore[n] = cal(n - 1) + cal(n - 2)
     }
-    while (n > 1) {
+    while (n > 0) {
         console.log(cal(n));
         n -= 1;
     }
 }
 
-feb(3);
+feb(10);
