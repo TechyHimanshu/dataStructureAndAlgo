@@ -21,12 +21,11 @@ console.log(b(1));
 
 // let counter = 0;
 
-function count(){
+let counqweet = (function(){
     let counter = 0
-    counter +=1;
-    return counter;
-}
+    return () => counter +=1;
+})();
 
-console.log(count())
-console.log(count())
-console.log(count())
+console.log(counqweet())
+console.log(counqweet())
+console.log(counqweet())

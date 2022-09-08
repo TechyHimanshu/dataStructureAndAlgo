@@ -1,19 +1,19 @@
 var isSubsequence = function(s, t) {
 
-    let m = s.length;
-    let n = t.length;
+    let s1 = s.length;
+    let s2 = t.length;
     let i=0,j=0
     
-    while(i<m && j<n){
+    while(i<s1 && j<s2){
         if(s[i] === t[j]){
-            i++
+            j++
         }
-        j++
+        i++
     }
-    return i==m;
+    return j==s2;
     
 };
 
-let t = "abc", s = "ahbgdc"
+let t = "abcx", s = "ahbgdc"
 
 console.log(isSubsequence(s,t));    

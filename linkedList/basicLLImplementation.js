@@ -98,7 +98,6 @@ class LinkedList{
                 mid= mid.next;
                 current= current.next.next;
             }
-
             console.log(mid.data)
         }
         console.log("-1");
@@ -109,7 +108,7 @@ class LinkedList{
         let previous = null;
 
         while(current != null){
-            let temp = current.next; ;
+            let temp = current.next; 
             current.next = previous;
             previous = current;
             current = temp;
