@@ -3,14 +3,6 @@ const arr3 = [2,3,7,8,10];
 const arr = [2,3,5,6,8,10];
 const k = 10;
 
-/*
-22222,
-2233
-622,
-73,
-235,
-55
-**/
 
 
 
@@ -32,7 +24,7 @@ function subsetSum(arr){
     for(let i=1; i<arr.length+1; i++){
         for(let j = 1; j<k+1; j++){
            if(arr[i-1]<=j)
-                mat[i][j] = mat[i][j-arr[i-1]] + mat[i-1][j]
+                mat[i][j] = mat[i-1][j-arr[i-1]] + mat[i-1][j]
             else mat[i][j] = mat[i-1][j] 
         }
     }

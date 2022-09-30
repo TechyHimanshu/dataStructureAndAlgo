@@ -22,19 +22,19 @@ const conqure = (arr, startIdx, midIdx, endIdx) => {
         }
     }
 
-    while(i<=midIdx){
+    while (i <= midIdx) {
         tempArr[n] = arr[i]
         n++;
         i++
     }
 
-    while(j<=endIdx){
+    while (j <= endIdx) {
         tempArr[n] = arr[j]
         n++;
         j++
     }
-
-    for(let a = 0, b = startIdx; a<tempArr.length; a++,b++ ){
+    //a is tracking for temp arr and b is used to track arr. 
+    for (let a = 0, b = startIdx; a < tempArr.length; a++, b++) {
         arr[b] = tempArr[a];
     }
 
@@ -42,7 +42,7 @@ const conqure = (arr, startIdx, midIdx, endIdx) => {
 
 const devide = (arr, startIdx, endIdx) => {
 
-    if(startIdx>=endIdx) return;
+    if (startIdx >= endIdx) return;
     const midIdx = Math.floor((startIdx + endIdx) / 2);
     devide(arr, startIdx, midIdx);
     devide(arr, midIdx + 1, endIdx);

@@ -8,7 +8,7 @@
 		var len = 0;
 		var i = 1;
 		lps[0] = 0; // lps[0] is always 0
-	
+        // lps = [0,0,1,2,0,1,2,3,4]
 		// the loop calculates lps[i] for i = 1 to M-1
 		while (i < M) {
 			if (pat.charAt(i) == pat.charAt(len)) {
@@ -76,4 +76,28 @@
 	
 	var txt = "ABABDABACDABABCABAB";
 	var pat = "ABABCABAB";
-	KMPSearch(pat, txt);
+	// KMPSearch(pat, txt);
+
+function computeLPS(m,pat,lps){
+    lps[0]=0
+    let i =1;
+    len = 0
+    while(i<m){
+        if(pat.charAt(i)==pat.charAt(len)){
+            len++;
+            lps[i]= len;
+            i++
+        }
+        else{
+            if(len!=0){
+                len = lps[len-1]
+            }
+            else{
+                lps[i]= len
+                i++
+            }
+        }
+    }
+}
+
+computeLPS(pat.length,pat,[]);

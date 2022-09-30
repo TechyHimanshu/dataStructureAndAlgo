@@ -1,6 +1,6 @@
 // find the next greater value from the given values in the arr
  
-const ip = "2187615";
+const ip = "2186751";
 
 function findNext(ip){
     ip = ip.split("");
@@ -22,6 +22,9 @@ function findNext(ip){
             }
         }
     }
+    let x = ip.slice(0,i);
+    let y = ip.slice(i,n);
+
     ip = ip.slice(0,i).concat(ip.slice(i,n).reverse());
     console.log(ip);
 

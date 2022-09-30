@@ -1,13 +1,13 @@
 // house
-this.table = "window table";
+// this.table = "window table";
 
-this.garage = {
-    table : 'garage table'
-}
+// this.garage = {
+//     table : 'garage table'
+// }
 
-let janeRoom = {
-    table : 'jane room table'
-}
+// let janeRoom = {
+//     table : 'jane room table'
+// }
  
 const test = () =>{
     this.counter = this.counter || 0;
@@ -19,13 +19,13 @@ console.log(test());
 console.log(test());
 
 
-const person =  {
-    firstName  : "John",
-    lastName   : "Doe",
-    id         : 5566,
-    myFunction : function() {
-      console.log(this);
-    }
-  };
+// const person =  {
+//     firstName  : "John",
+//     lastName   : "Doe",
+//     id         : 5566,
+//     myFunction : function() {
+//       console.log(this);
+//     }
+//   };
 
-person.myFunction();
+// person.myFunction();

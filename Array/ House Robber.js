@@ -20,7 +20,7 @@ Total amount you can rob = 1 + 3 = 4.
 
 
 // temp array is used to calculate max sum
-
+// all these solutions are based on kadens algorithm
 function rob(nums){
     if(nums.length==1) return(nums[0]);
     let temp = []

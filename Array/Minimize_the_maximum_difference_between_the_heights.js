@@ -18,3 +18,13 @@
 let k = 6, n = 3;
 let arr = [1,10,15 ];
 let ans = getMinDiff(arr, n, k);
+
+
+// min(7,4) => 4
+// max(7,9)=> 9
+// ans => min(14,5) = 5
+// i=2
+// min(7,9) = 4
+// max(16,9) = 16
+// ans = min(5,12) = 5
+

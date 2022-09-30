@@ -51,4 +51,24 @@ solution2 (str,str2);
 
 // Longest Common Subsequence  recursive solution  recursive solution with top down approach
 
+function longestCommonSubSequenceTopDownn(str,str2,m,n){
+    let a = [];
+for(let i = 0 ; i<m ; i++){
+    a[i] = [];
+}
 
+for(let i=0 ;i<m; i++){
+    for(let j=0; j<n; j++){
+        if (i==0 || j==0){
+            a[i][j] = 0;
+        }
+        else a[i][j] = 1
+    }
+}
+
+for(let i=1 ;i<m; i++){
+    for(let j=1; j<n; j++){
+    }
+}
+
+}
