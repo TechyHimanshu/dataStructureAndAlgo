@@ -16,3 +16,54 @@ while(j < arr.length){
     }     
 }
 console.log(max);
+
+
+// var maxInSlidingWindow = function(nums, k) {
+//     let i = 0;
+//     let j = 0;
+//     let temp = [];
+//     let res = [];
+//     while(j<nums.length){
+//         if(temp.length!=k){
+//             temp.push(nums[j])
+//             j++
+//         }
+//         else if(k == temp.length){
+//             res.push(Math.max(...temp));
+//             i++;
+//             temp.shift();
+//         }
+
+//     }
+//     res.push(Math.max(...temp));
+//     return res
+
+// };
+
+
+
+var maxInSlidingWindow = function (nums, k) {
+    let i = 0;
+    let j = 0;
+    let deque = [];
+    let res = [];
+    while (j < nums.length) {
+        while (deque.length && nums[j] > nums[deque[deque.length - 1]])
+            deque.pop()
+        deque.push(j);
+        if (i > deque[0])
+            deque.shift()
+        if (k == j-i +1) {
+            res.push(nums[deque[0]]);
+            i++;
+        }
+        j++
+    }
+    return res
+
+};
+
+let ip = [1, 3, -1, -3, 5, 3, 6, 7];
+let ip2 = [7, 2, 4]
+let l = 3;
+maxInSlidingWindow(ip, l)

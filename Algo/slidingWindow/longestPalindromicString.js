@@ -13,12 +13,12 @@ var longestPalindrome = function(s) {
         }
         return true;
     }
-    let n = s.length;
-    for(let k = 0; k < n;k++)
+    let n = s.length-1;
+    for(let k = 0; k <= n;k++)
     {
-        let j = n - 1 - k;
+        let j = n - k;
         let i = 0;
-        while(j < n)
+        while(j <= n)
         {
             if(isPal(i,j))
                 return s.substring(i, j + 1);
@@ -51,6 +51,7 @@ function manachersAlgo(str){
             left--;
             right++;
         }
+        //for checkinng in the even position
         left = i , right= i+1;
         while(left>-1 && right<str.length && str[left]===str[right]){
             if(right-left+1>resmax){

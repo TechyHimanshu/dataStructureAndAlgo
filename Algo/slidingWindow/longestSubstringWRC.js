@@ -1,6 +1,6 @@
 // longest substring without repeating characters
 
-const s = "pwwkew";
+const s = "pwwkewj";
 let i = 0;
 let j = 0;
 let maxLength = Number.MIN_VALUE;
@@ -26,7 +26,7 @@ while (j < s.length) {
 console.log(maxLength);
 
 
-const str = "pwwkew"
+const str = "pwwkewj"
 
 function longestSubstring(str) {
     let arr = str.split("");

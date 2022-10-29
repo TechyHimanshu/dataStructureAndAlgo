@@ -56,3 +56,30 @@ var numIslands = function (grid) {
 
 
 numIslands(grid);
+
+
+function dfs2(i, j, grid, visited) {
+    if (i < 0 || j < 0 || i > grid.length - 1 || j > grid[i].length - 1 || grid[i][j] == 0 || visited[i][j])
+        return;
+    visited[i][j] = true
+    if (i > 0 && grid[i - 1][j] && !visited[i - 1][j]) dfs(i - 1, j, grid, visited)
+    if (j > 0 && grid[i][j - 1] && !visited[i][j - 1]) dfs(i, j - 1, grid, visited)
+    if (i < grid.length - 1 && grid[i + 1][j] && !visited[i + 1][j]) dfs(i + 1, j, grid, visited)
+    if (j < grid[i].length - 1 && grid[i][j + 1] && !visited[i][j + 1]) dfs(i, j + 1, grid, visited)
+}
+
+function countIsland(grid) {
+    let visited = grid.map(ele => ele.map(ele => ele = false));
+    let count = 0
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            if (!visited[i][j] && grid[i][j] != 0) {
+                count++;
+                dfs2(i, j, grid, visited);
+            }
+        }
+    }
+    console.log(count);
+}
+
+countIsland(grid)

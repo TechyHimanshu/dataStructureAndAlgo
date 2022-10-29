@@ -4,7 +4,7 @@
 
 // Function to find all unique combination of
 // given elements such that their sum is K
-function unique_combination(l, currentsum, K, local, A) {
+function unique_combination(start, currentsum, K, local, A) {
 	// If a unique combination is found
 	if (currentsum == K) {
 		console.log(local);
@@ -12,14 +12,14 @@ function unique_combination(l, currentsum, K, local, A) {
 	}
 
 	// For all other combinations
-	for (let i = l; i < A.length; i++) {
+	for (let i = start; i < A.length; i++) {
 
 		// Check if the sum exceeds K
 		if (currentsum + A[i] > K)
 			continue;
 
 		// Check if it is repeated or not
-		if (i > l && A[i] == A[i - 1])
+		if (i > start && A[i] == A[i - 1])
 			continue;
 
 		// Take the element into the combination
@@ -43,6 +43,7 @@ function Combination(A, K) {
 	let local = [];
 
 	unique_combination(0, 0, K, local, A);
+	console.log(local)
 }
 
 // Driver code

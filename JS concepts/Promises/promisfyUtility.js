@@ -45,3 +45,18 @@ function test(x,y){
 async function ans(){
     console.log(await test(2,3)) /// prints 5 because async returns promise after setTimeout is executed that means fullfilled 
 }
+
+function timeOut(ip,interval) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(ip), interval)
+    })
+}
+
+async function a() {
+    console.log(1)
+    await timeOut(2,1000).then(res => console.log(res));
+    await timeOut(3,1000).then(res => console.log(res));
+    await timeOut(4,1000).then(res => console.log(res));
+    await timeOut(5,1000).then(res => console.log(res));
+    console.log(5)
+};

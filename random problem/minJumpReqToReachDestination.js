@@ -25,7 +25,7 @@ function minJump2(arr) {
     for(let i =1; i<l;i++){
         for(let j=0;j<i;j++){
             if(i<=j+arr[j]){
-                minJumpReq = Math.min(minJumpReq[i],minJumpReq[j]+1)
+                minJumpReq[i] = Math.min(minJumpReq[i],minJumpReq[j]+1)
             }
         }
     } 

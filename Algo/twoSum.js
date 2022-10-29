@@ -2,10 +2,10 @@ const nums = [2,7,11,6,5,3]
 const target = 13;
 
 const twoSum = (nums,target) =>{
-    let storage = {};
+    let obj = {};
     for(let [index, num] of nums.entries()){
-        if(storage[num] !== undefined) return [storage[num],index]
-        storage[target - num] = index;
+        if(obj[num] !== undefined) return [obj[num],index]
+        obj[target - num] = index;
     }
 }
 

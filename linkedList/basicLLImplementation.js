@@ -13,7 +13,7 @@ class LinkedList{
 
     // insert head
     insertHead(data){
-        this.head = new LNode(data,this.head);
+        this.head = new LNode(data);
         this.size++;
         return this.head;
     }
@@ -114,7 +114,6 @@ class LinkedList{
             current = temp;
         }
     }
-
 
 }
 const ll = new LinkedList()

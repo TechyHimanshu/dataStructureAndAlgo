@@ -1,8 +1,8 @@
 const ip = ["abc","jkl","bcd","klm","zab"] 
 let obj = {};
-const c = 97
+const asciiNo = 97
 for(let i=0 ,j=1; i<26; i++, j++){
-obj[String.fromCharCode(97+i)]= [c+j]
+obj[String.fromCharCode(97+i)]= [asciiNo+j]
 }
 
 let temp = {}

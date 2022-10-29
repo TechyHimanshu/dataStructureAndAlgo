@@ -15,3 +15,27 @@ function permute(nums) {
 }
 
 console.log(permute([1,2,3]));
+
+function permutationHelper(ci,ti,nums,res){
+
+    if(ci>ti){
+        res.push(nums);
+        console.log(nums);
+        return;
+    }
+    for(let i = ci; i<=ti; i++){
+        [nums[i],nums[ci]] = [nums[ci],nums[i]];
+        permutationHelper(ci+1,ti,nums,res);
+        [nums[ci],nums[i]] = [nums[i],nums[ci]]; 
+    }
+
+}
+
+function permutationRecurr(nums){
+    let n = nums.length-1;
+    let res = []
+    permutationHelper(0,n,nums,res)
+    console.log(res);
+}
+
+permutationRecurr([1,2,3])
