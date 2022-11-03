@@ -28,7 +28,7 @@ function unique_combination(start, currentsum, K, local, A) {
 		// Recursive call
 		unique_combination(i + 1, currentsum + A[i], K, local, A);
 
-		// Remove element from the combination
+		// Remove element from the combination for backtracking
 		local.pop();
 	}
 }

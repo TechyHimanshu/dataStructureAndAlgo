@@ -20,7 +20,7 @@ addPromise(3,4).then(sum => console.log(sum))
 
 
 
-//always use setimeout inside new Promise so that it will resole it ad give you resolved oujtput
+//always use setimeout inside new Promise so that it will resole it and give you resolved output
 
 async function test(x,y){
     setTimeout(() => {
@@ -29,7 +29,7 @@ async function test(x,y){
 }
 
 async function ans(){
-    console.log(await test(2,3)) /// prints undefined because async returns promise immediately ad setTimeout is not executed
+    console.log(await test(2,3)) /// prints undefined because async returns promise immediately and setTimeout is not executed
 }
 
 // to solve this refactor it as below

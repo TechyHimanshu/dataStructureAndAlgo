@@ -3,63 +3,26 @@
 const s = "ababbcaabbb";
 const k = 2
 
-let counts = new Map();
-let totalUniqChars = 0;
-let len = 0;
-for (let ch of s) {
-    if (!counts.has(ch)) {
-        totalUniqChars++;
-        counts.set(ch, 1);
-    } else {
-        let c = counts.get(ch);
-        counts.set(ch, c + 1);
+function longestSubstring(s, k) {
+    let n = s.length
+    if (n == 0 || n < k)
+        return 0;
+    if (k == 1)
+        return n;
+    let obj = {};
+    for (let i of s) {
+        obj[i] = obj[i] ? obj[i] + 1 : 1
     }
+    let ctr = 0
+    while (ctr < n && obj[s[ctr]] >= k) ctr++
+    if (ctr >= n-1) return ctr;
+    let ls1 = longestSubstring(s.substring(0, ctr), k)
+    while (ctr < n && obj[s[ctr]] < k) ctr++
+    let ls2 = (ctr < n) ? longestSubstring(s.substring(ctr), k) : 0;
+
+    return Math.max(ls1, ls2);
+
 }
-for (let numUniq = 1; numUniq <= totalUniqChars; numUniq++) {
-    let i = 0, j = 0, countK = 0;
-    counts.clear();
-    while (j < s.length) {
-        if (!counts.has(s[j])) {
-            counts.set(s[j], 1);
-            if (k === 1) {
-                countK++;
-            }
-        } else {
-            let x = counts.get(s[j]);
-            counts.set(s[j], x + 1);
-            if (x + 1 === k) {
-                countK++;
-            }
-        }
-        if (counts.size <= numUniq) {
-            j++;
-        } else if (counts.size > numUniq) {
-            while (counts.size > numUniq) {
-                if (counts.has(s[i])) {
-                    let x = counts.get(s[i]);
-                    if (x === k) {
-                        countK--;
-                    }
-                    x--;
-                    if (!x) {
-                        counts.delete(s[i]);
-                    } else {
-                        counts.set(s[i], x);
-                    }
-                }
-                i++;
-            }
-            j++;
-        }
-        if (countK === counts.size && counts.size === numUniq) {
-            if (j - i > len) {
-                len = j - i;
-            }
-        }
-    }
-}
-console.log(len);
 
-
-
+console.log(longestSubstring(s, k))
 // abcacda <-> adccba
