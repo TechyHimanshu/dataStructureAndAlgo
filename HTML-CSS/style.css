@@ -1,0 +1,20 @@
+.clr{
+    color:darkgoldenrod ;
+    background:darkslategrey;
+}
+.txtProp{
+    font-size: 20px;
+    font-weight:bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.size {
+    width:30;
+}
+input{
+    display: block;
+    align-self: center;
+    width: 400px;
+    border-radius: 5px;
+}
