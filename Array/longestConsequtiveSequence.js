@@ -25,4 +25,25 @@ function longestConsecutiveSequence(nums){
     console.log(longestStreak)
 }
 
+var longestConsecutive = function(nums) {
+    let numSet = new Set(nums)
+    let currentNum
+    let longestStreak = 0
+
+    for (let i of numSet){
+    let curentStreak = 0
+        if(!numSet.has(i-1)){
+            currentNum = i
+            curentStreak +=1
+            while(numSet.has(currentNum+1)){
+                currentNum = currentNum +1
+                curentStreak +=1
+            } 
+            longestStreak = Math.max(longestStreak,curentStreak);
+        }
+    }
+    return longestStreak
+};
+
+
 longestConsecutiveSequence(nums)

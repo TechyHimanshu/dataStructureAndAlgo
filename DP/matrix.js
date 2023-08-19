@@ -4,7 +4,7 @@ const matrix = Array(3).fill(1,1,3).map(()=>Array(3).fill(0,0,1));
 
 console.log(matrix);
 
-const m2 =  Array(3).fill(Array(3).fill(0));
+let dp = Array(grid.length).fill().map(()=>Array(grid[0].length).fill(0))
 
 console.log(m2);
 

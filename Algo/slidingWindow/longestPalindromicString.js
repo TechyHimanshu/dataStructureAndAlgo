@@ -30,7 +30,7 @@ var longestPalindrome = function(s) {
     
 };
 
-console.log(longestPalindrome(s));
+// console.log(longestPalindrome(s));
 
 
 // using manacher's algo

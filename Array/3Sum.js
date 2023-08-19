@@ -11,7 +11,7 @@ function solution(nums){
         if(i>0 && nums[i-1]=== nums[i]) continue;
         while(j<k){
             // if(nums[j-1]=== nums[j]) j++;
-            if(nums[j]+nums[k]-target==-nums[i]){
+            if(nums[j]+nums[k]+nums[i]== target){
                 while (nums[j] === nums[j + 1]) j++;
                 while (nums[k] === nums[k - 1]) k--;
                 ans.push([nums[i],nums[j],nums[k]])

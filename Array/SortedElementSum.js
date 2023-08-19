@@ -1,5 +1,5 @@
 const arr = [12,16,99,41,28,21];
-// op=[12,41,16,28,99]
+// op=[12,21,41,16,28,99]
 
 
 function sortedEleSum(arr){

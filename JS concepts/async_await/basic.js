@@ -1,7 +1,7 @@
 // this fucntion will error 
 //Parsing error: Can not use keyword 'await' outside an async function(undefined)
 async function someFunction() {
-    setTimeout(() => {
+    setTimeout( () => {
         await someOtherFunction();
     }, 5000);
 }

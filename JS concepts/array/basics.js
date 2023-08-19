@@ -20,12 +20,13 @@ return bar();
   function bar() {    
     return 3;    
   }    
- 
  function bar() {        
   return 8;    
  }
- 
-
 }
 
+//In JavaScript, when multiple functions have the same name within the same scope, 
+//only the last declaration is considered. Therefore, 
+//the second bar function declaration will override the first one. As a result, 
+//calling bar() within foo will always return 8 regardless of the order of the declarations.
 console.log(foo()); // 8

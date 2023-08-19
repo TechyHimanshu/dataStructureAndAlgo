@@ -43,7 +43,6 @@ function Combination(A, K) {
 	let local = [];
 
 	unique_combination(0, 0, K, local, A);
-	console.log(local)
 }
 
 // Driver code
@@ -55,3 +54,7 @@ let K = 8;
 
 // Function call
 Combination(A, K);
+//  [1, 1, 6]
+//  [1, 2, 5]
+//  [1, 7]
+//  [2, 6]

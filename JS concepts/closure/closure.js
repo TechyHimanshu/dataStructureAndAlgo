@@ -6,7 +6,7 @@ function test(){
     return outer+inner;
 }
 
-console.log(test());
+console.log(test()); //5
 
 function add(passed) {
     return function(inner) {
@@ -16,8 +16,8 @@ function add(passed) {
 
 const a = add(3);
 const b = add(4);
-console.log(a(1));
-console.log(b(1));
+console.log(a(1)); //4
+console.log(b(1)); //5
 
 // let counter = 0;
 

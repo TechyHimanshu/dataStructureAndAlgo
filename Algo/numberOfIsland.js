@@ -55,17 +55,17 @@ var numIslands = function (grid) {
 };
 
 
-numIslands(grid);
+// numIslands(grid);
 
 
 function dfs2(i, j, grid, visited) {
     if (i < 0 || j < 0 || i > grid.length - 1 || j > grid[i].length - 1 || grid[i][j] == 0 || visited[i][j])
         return;
     visited[i][j] = true
-    if (i > 0 && grid[i - 1][j] && !visited[i - 1][j]) dfs(i - 1, j, grid, visited)
-    if (j > 0 && grid[i][j - 1] && !visited[i][j - 1]) dfs(i, j - 1, grid, visited)
-    if (i < grid.length - 1 && grid[i + 1][j] && !visited[i + 1][j]) dfs(i + 1, j, grid, visited)
-    if (j < grid[i].length - 1 && grid[i][j + 1] && !visited[i][j + 1]) dfs(i, j + 1, grid, visited)
+    if (i > 0 && grid[i - 1][j] && !visited[i - 1][j]) dfs2(i - 1, j, grid, visited)
+    if (j > 0 && grid[i][j - 1] && !visited[i][j - 1]) dfs2(i, j - 1, grid, visited)
+    if (i < grid.length - 1 && grid[i + 1][j] && !visited[i + 1][j]) dfs2(i + 1, j, grid, visited)
+    if (j < grid[i].length - 1 && grid[i][j + 1] && !visited[i][j + 1]) dfs2(i, j + 1, grid, visited)
 }
 
 function countIsland(grid) {
@@ -82,4 +82,66 @@ function countIsland(grid) {
     console.log(count);
 }
 
-countIsland(grid)
+// countIsland(grid)
+
+
+var maxAreaOfIsland = function(grid) {
+
+    function dfs(i,j,grid,visited,count){
+        if(i<0 || j<0 || i>grid.length-1 || j>grid[i].length-1|| grid[i][j] == 0 || visited[i][j]) return 0
+        visited[i][j] = true
+        if(i>0 && grid[i-1][j] && !visited[i-1][j]) dfs(i-1,j,grid,visited,count+1)
+        if(j>0 && grid[i][j-1] && !visited[i][j-1]) dfs(i,j-1,grid,visited,count+1)
+        if(i<grid.length-1 && grid[i+1][j] && !visited[i+1][j]) dfs(i+1,j,grid,visited,count+1)
+        if(j<grid[i].length-1 && grid[i][j+1] && !visited[i][j+1]) dfs(i,j+1,grid,visited,count+1)
+        return count
+    }
+    let visited = grid.map(row => row.map(col=> false))
+    let maxArea = Number.MIN_VALUE
+    for(let i=0; i<grid.length; i++){
+        for(let j =0 ; j<grid[i].length-1; j++){
+            if(grid[i][j] && !visited[i][j]){
+                 let count = 1
+                 count = dfs(i,j,grid,visited,count)
+                maxArea = Math.max(maxArea, count)
+            }
+        }
+    }
+    return maxArea
+};
+
+// maxAreaOfIsland(grid)
+
+function maxGoldcollected(mat){
+    function recurr(mat,i,j,visited,bag){
+        if(i<0 || j < 0 || i>=mat.length ||j>=mat[0].length || visited[i][j] || mat[i][j]==0){
+            return 
+        }
+        visited[i][j]= true
+        bag.push(mat[i][j])
+        recurr(mat,i-1,j,visited,bag)
+        recurr(mat,i,j-1,visited,bag)
+        recurr(mat,i+1,j,visited,bag)
+        recurr(mat,i,j+1,visited,bag)
+    }
+
+    let visited = Array(mat.length).fill().map(()=>Array(mat[0].length).fill(false))
+    let maxGold = 0
+    for(let i = 0;i<mat.length;i++){
+        for(let j = 0 ; j<mat[0].length; j++){
+            let bag = []
+            if(mat[i][j] != 0 && !visited[i][j]){
+               recurr(mat,i,j,visited,bag)
+               let gold = bag.reduce((a,b)=>a+b)
+                maxGold = Math.max(maxGold, gold)
+            }
+        }
+    }
+
+    console.log(maxGold)
+}
+
+let mat = [[0,6,0],
+[5,8,7],
+[0,9,0]]
+maxGoldcollected(mat)

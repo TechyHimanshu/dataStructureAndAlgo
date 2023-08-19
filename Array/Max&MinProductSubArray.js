@@ -7,9 +7,9 @@ var maxProduct = function(nums) {
     
     for (const n of nums) {
         if (n === 0) {
-            curMin = 1
-            curMax = 1
-            max = Math.max(max, n)
+                curMin = 1
+                curMax = 1
+                max = Math.max(max, n)
         } else {
             const tempMax = curMax * n
             const tempMin = curMin * n

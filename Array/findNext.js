@@ -1,4 +1,4 @@
-const ip = "2187615";
+const ip = "218761765";
 
 function findNext(ip){
     ip = ip.split("");
@@ -25,3 +25,5 @@ function findNext(ip){
 
 }
 findNext(ip);
+
+//this solution is not correct refer nexxt permutation

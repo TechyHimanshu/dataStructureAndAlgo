@@ -9,4 +9,7 @@ const twoSum = (nums,target) =>{
     }
 }
 
+// {11:0,
+// 6:1}
+
 console.log(twoSum(nums,target));

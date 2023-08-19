@@ -1,6 +1,6 @@
 const board =[["o","a","b","n"],["o","t","a","e"],["a","h","k","r"],["a","f","l","v"]]
 
-const words = ["oaa"]
+const words = "oaa"
 
 function dfs(board,i,j,word){
     if(word.length === 0) return true
@@ -23,7 +23,7 @@ function wordSearch(board,words){
                 output = dfs(board,i,j,words)
             }    
         }
-return [...output];
+return false
 }
 
 console.log(wordSearch(board,words));
