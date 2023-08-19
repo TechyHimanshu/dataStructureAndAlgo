@@ -1,4 +1,10 @@
 // Builder Interface
+/**
+ * The Builder pattern separates the construction of a complex object from its representation, 
+ * allowing you to create different representations of an object using the same construction process. 
+ * It involves a Director that orchestrates the construction via a Builder interface
+ */
+
 class BurgerBuilder {
     constructor() {
       this.burger = new Burger();
